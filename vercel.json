@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "caching": {
+    "patterns": [
+      {
+        "pattern": "/favicon.ico",
+        "ttl": 31536000
+      },
+      {
+        "pattern": "/*.(png|jpg|jpeg|gif|svg|webp|ico)",
+        "ttl": 31536000
+      },
+      {
+        "pattern": "/*.(css|js|woff|woff2|ttf)",
+        "ttl": 31536000
+      }
+    ]
+  }
+}
