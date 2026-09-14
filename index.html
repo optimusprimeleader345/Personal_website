@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rohit Jadhav — AI/ML Engineer, Pune</title>
 <meta name="description" content="Rohit Jadhav builds LLM applications, multi-agent systems, and AI-backed products for founders and teams. Available for freelance engagements.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232C5A4D'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%23F6F3EC' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' rx='16' fill='%23F6F3EC'/%3E%3Cpath d='M36 8 L60 18 V36 C60 52 50 62 36 66 C22 62 12 52 12 36 V18 Z' fill='none' stroke='%232C5A4D' stroke-width='5'/%3E%3Ctext x='36' y='47' font-family='Georgia,serif' font-size='27' font-weight='700' fill='%2318170F' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rohit Jadhav — AI/ML Engineer, Pune">
 <meta property="og:description" content="LLM applications, multi-agent systems, and AI-backed products for founders and teams. Available for freelance engagements.">
@@ -49,7 +49,25 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
     cursor:default;
+    opacity:0;
+    animation:page-in .7s ease-out .05s forwards;
   }
+  @keyframes page-in{from{opacity:0;}to{opacity:1;}}
+
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:8px;border:2px solid var(--bg);}
+  ::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+  html{scrollbar-width:thin;scrollbar-color:var(--line-strong) var(--bg);}
+
+  .hero-cursor-glow{
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle, rgba(44,90,77,0.14) 0%, rgba(44,90,77,0) 70%);
+    pointer-events:none;z-index:0;
+    transform:translate(-50%,-50%);
+    opacity:0;transition:opacity .4s ease;
+  }
+  .hero:hover .hero-cursor-glow{opacity:1;}
   h1,h2,h3{
     font-family:'Fraunces',serif;
     font-weight:440;
@@ -107,7 +125,8 @@
     border-bottom:1px solid var(--line);
   }
   nav.wrap{display:flex;align-items:center;justify-content:space-between;}
-  .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:560;}
+  .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:560;display:flex;align-items:center;gap:9px;}
+  .logo svg{flex-shrink:0;}
   .navlinks{display:flex;gap:36px;align-items:center;}
   .navlinks a{font-size:14px;color:var(--ink-soft);position:relative;padding:2px 0;}
   .navlinks a::after{
@@ -384,6 +403,18 @@
   .contact-list a span.arrow{color:var(--ink-faint);font-size:14px;transition:color .3s;}
   .contact-list a:hover span.arrow{color:var(--accent);}
 
+  .status-row.copy-row{cursor:pointer;transition:background .25s;}
+  .status-row.copy-row:hover{background:rgba(44,90,77,.06);}
+  .status-row.copy-row.copied span:last-child{color:var(--accent);}
+  .copy-btn{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+    color:var(--ink-faint);background:transparent;border:1px solid var(--line);
+    border-radius:100px;padding:5px 12px;margin-left:16px;cursor:pointer;
+    transition:border-color .25s, color .25s;flex-shrink:0;
+  }
+  .copy-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .copy-btn.copied{border-color:var(--accent);color:var(--accent);}
+
   footer{padding:36px 0;border-top:1px solid var(--line);}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-faint);}
   footer .wrap a{color:var(--ink-faint);}
@@ -462,6 +493,49 @@
     color:rgba(246,243,236,.7);font-size:13px;letter-spacing:.02em;
   }
 
+  /* ---------- FREELANCE PLATFORMS ---------- */
+  .platform-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .platform-card{
+    background:var(--bg);padding:32px 26px;
+    display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+    position:relative;overflow:hidden;
+    transition:background .35s var(--ease), transform .35s var(--ease);
+  }
+  .platform-card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+    background:var(--p-color, var(--accent));
+    transition:width .4s var(--ease);
+  }
+  .platform-card:hover{background:var(--bg-panel);transform:translateY(-4px);}
+  .platform-card:hover::before{width:3px;}
+  .platform-icon{
+    width:48px;height:48px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:640;font-size:19px;
+    background:var(--p-color, var(--accent));color:#fff;
+    box-shadow:0 12px 24px -14px var(--p-color, var(--accent));
+    transition:transform .4s var(--ease);
+  }
+  .platform-card:hover .platform-icon{transform:scale(1.08) rotate(-4deg);}
+  .platform-name{font-family:'Fraunces',serif;font-size:19px;font-weight:520;}
+  .platform-desc{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .platform-link{
+    font-size:12.5px;font-weight:600;color:var(--p-color, var(--accent));
+    display:inline-flex;align-items:center;gap:5px;margin-top:2px;
+  }
+  .platform-link .go{transition:transform .3s var(--ease);}
+  .platform-card:hover .platform-link .go{transform:translateX(4px);}
+
+  @media (max-width:860px){
+    .platform-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .platform-grid{grid-template-columns:1fr;}
+  }
+
   @media (max-width:860px){
     .services-grid{grid-template-columns:1fr;}
     .process-row{grid-template-columns:1fr;gap:28px;}
@@ -503,7 +577,10 @@
 
 <header>
   <nav class="wrap">
-    <div class="logo">Rohit Jadhav</div>
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 72 72"><path d="M36 8 L60 18 V36 C60 52 50 62 36 66 C22 62 12 52 12 36 V18 Z" fill="none" stroke="#2C5A4D" stroke-width="4"/><text x="36" y="46" font-family="Fraunces, serif" font-size="26" font-weight="640" fill="#18170F" text-anchor="middle">R</text></svg>
+      Rohit Jadhav
+    </div>
     <div class="navlinks">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -516,6 +593,7 @@
 
 <section class="hero" id="top">
   <div class="hero-glow"></div>
+  <div class="hero-cursor-glow" id="heroGlow"></div>
   <canvas id="hero3d"></canvas>
   <div class="wrap hero-grid">
     <div>
@@ -543,7 +621,7 @@
       <div class="status-row"><span>Based in</span><span>Pune, IST (UTC+5:30)</span></div>
       <div class="status-row"><span>Typical reply</span><span>Within 24 hours</span></div>
       <div class="status-row"><span>Focus areas</span><span>LLM apps, agents, FastAPI</span></div>
-      <div class="status-row"><span>Email</span><span>jadhavrohit0004@gmail.com</span></div>
+      <div class="status-row copy-row" data-copy="jadhavrohit0004@gmail.com"><span>Email</span><span class="copy-target">jadhavrohit0004@gmail.com</span></div>
       <div class="orbit-wrap">
         <div class="signal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="orbit-label">Recent commit activity, last 7 weeks</div>
@@ -960,6 +1038,54 @@
   </div>
 </section>
 
+<section id="platforms">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Freelancing</div>
+      <h2>Also available on</h2>
+      <p>Beyond direct engagements, I take on scoped work through these platforms — pick whichever you already trust and use.</p>
+    </div>
+    <div class="platform-grid reveal">
+      <a class="platform-card tilt" href="https://www.upwork.com/freelancers/~0137e2b4f8d4363747?mp_source=share" target="_blank" rel="noopener" style="--p-color:#14A800">
+        <div class="platform-icon">Up</div>
+        <div class="platform-name">Upwork</div>
+        <p class="platform-desc">Scoped freelance contracts — LLM features, agents, and full-stack builds.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+      <a class="platform-card tilt" href="https://www.fiverr.com/s/DmBmvxa" target="_blank" rel="noopener" style="--p-color:#1DBF73">
+        <div class="platform-icon">Fi</div>
+        <div class="platform-name">Fiverr</div>
+        <p class="platform-desc">Fixed-scope gigs for smaller AI integrations and quick builds.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+      <a class="platform-card tilt" href="https://www.guru.com/freelancers/rohit-jadhav-16" target="_blank" rel="noopener" style="--p-color:#5B8C5A">
+        <div class="platform-icon">Gu</div>
+        <div class="platform-name">Guru</div>
+        <p class="platform-desc">Longer-term freelance engagements and ongoing technical work.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+      <a class="platform-card tilt" href="https://mercor.com/" target="_blank" rel="noopener" style="--p-color:#4C3AE3">
+        <div class="platform-icon">Me</div>
+        <div class="platform-name">Mercor</div>
+        <p class="platform-desc">AI-vetted technical roles and contract engineering work.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+      <a class="platform-card tilt" href="https://outlier.ai/" target="_blank" rel="noopener" style="--p-color:#18181B">
+        <div class="platform-icon">Ou</div>
+        <div class="platform-name">Outlier AI</div>
+        <p class="platform-desc">AI model evaluation and training-data work, aligned with my current internship focus.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+      <a class="platform-card tilt" href="https://www.alignerr.com/" target="_blank" rel="noopener" style="--p-color:#2C7A7B">
+        <div class="platform-icon">Al</div>
+        <div class="platform-name">Alignerr</div>
+        <p class="platform-desc">RLHF and AI-alignment focused evaluation and annotation projects.</p>
+        <span class="platform-link">Visit profile <span class="go">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
@@ -1005,8 +1131,8 @@
       <a class="btn magnetic" href="mailto:jadhavrohit0004@gmail.com">Email me</a>
     </div>
     <div class="contact-list reveal">
-      <a href="mailto:jadhavrohit0004@gmail.com">Email <span class="arrow">jadhavrohit0004@gmail.com</span></a>
-      <a href="tel:+919689482298">Phone <span class="arrow">+91 96894 82298</span></a>
+      <a href="mailto:jadhavrohit0004@gmail.com">Email <span class="arrow">jadhavrohit0004@gmail.com</span><button class="copy-btn" data-copy="jadhavrohit0004@gmail.com" aria-label="Copy email">Copy</button></a>
+      <a href="tel:+919689482298">Phone <span class="arrow">+91 96894 82298</span><button class="copy-btn" data-copy="+919689482298" aria-label="Copy phone number">Copy</button></a>
       <a href="https://www.linkedin.com/in/rohit-jadhav-45282331a/">LinkedIn <span class="arrow">rohit-jadhav</span></a>
       <a href="https://github.com/optimusprimeleader345">GitHub <span class="arrow">optimusprimeleader345</span></a>
     </div>
@@ -1099,6 +1225,20 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollTrigger:{trigger:p, start:'top 90%'}});
   });
 
+  // Platform cards — staggered entrance with icon pop
+  gsap.utils.toArray('.platform-card').forEach((card, i) => {
+    const icon = card.querySelector('.platform-icon');
+    gsap.set(icon, {scale:0.4, opacity:0});
+    ScrollTrigger.create({
+      trigger:'.platform-grid',
+      start:'top 85%',
+      once:true,
+      onEnter:() => {
+        gsap.to(icon, {scale:1, opacity:1, duration:0.55, ease:'back.out(2.2)', delay:i*0.08});
+      }
+    });
+  });
+
   // 3D tilt + glare for cards
   document.querySelectorAll('.tilt').forEach(el => {
     const intensity = 8;
@@ -1123,6 +1263,64 @@ document.addEventListener('DOMContentLoaded', () => {
       const wasOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Hero cursor glow
+  const heroSection = document.querySelector('.hero');
+  const heroGlow = document.getElementById('heroGlow');
+  if(heroSection && heroGlow){
+    heroSection.addEventListener('mousemove', (e) => {
+      const r = heroSection.getBoundingClientRect();
+      heroGlow.style.left = (e.clientX - r.left) + 'px';
+      heroGlow.style.top = (e.clientY - r.top) + 'px';
+    });
+  }
+
+  // Copy to clipboard
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    return Promise.resolve();
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const text = btn.dataset.copy;
+      copyText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+  });
+
+  document.querySelectorAll('.copy-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const text = row.dataset.copy;
+      copyText(text).then(() => {
+        row.classList.add('copied');
+        const target = row.querySelector('.copy-target');
+        const original = target.textContent;
+        target.textContent = 'Copied to clipboard!';
+        setTimeout(() => {
+          target.textContent = original;
+          row.classList.remove('copied');
+        }, 1800);
+      });
     });
   });
 
